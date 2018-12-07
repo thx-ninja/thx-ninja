@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>THX! Ninja</title>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <h1>Thx Ninja</h1>
+
+    <p>
+      
+    </p>
+
+    <button id="create-thx" type="button">Create new thx link</button>
+
+    <div id="new_gratitude">
+      
+    </div>
+
+    <script charset="utf-8">
+      $('#create-thx').on('click', function() {
+        $.post( "/api/gratitude", function( data ) {
+          console.log(data.id);
+          thx = '<a href="/thx/' + data.id + '">THX</a>';
+          $( "#new_gratitude" ).html(thx);
+        });
+      });
+    </script>
+  </body>
+</html>
+
